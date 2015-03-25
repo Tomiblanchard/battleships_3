@@ -5,13 +5,13 @@ describe Cell do
   let(:ship) { double :ship }
 
   it 'can contain a ship' do
-    cell.placeship = ship
-    expect(cell.placeship).to eq ship
+    cell.content = ship
+    expect(cell.content).to eq ship
   end
 
   context 'with content' do
     before do
-      cell.placeship = ship
+      cell.content = ship
       allow(ship).to receive :hit
     end
 
@@ -26,7 +26,7 @@ describe Cell do
     end
 
     it 'hit whatever is in the content' do
-      expect(ship).to receive(:hit)
+      allow(ship).to receive(:hit)
       cell.hit
     end
   end

@@ -1,5 +1,6 @@
+# cell
 class Cell
-  attr_accessor :placeship
+  attr_accessor :content
   attr_reader :size, :hit
   alias_method :hit?, :hit
 
@@ -10,13 +11,13 @@ class Cell
   end
 
   def shoot_ship
-    placeship.hit_cell
+    content.hit_cell
     @hit_cell = true
   end
 
   def hit
     fail 'Cell already hit' if hit?
-    placeship.hit
+    content.hit
     @hit = true
   end
 end
