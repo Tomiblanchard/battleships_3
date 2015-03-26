@@ -1,37 +1,9 @@
 # board
 class Board
-  DEFAULT_SIZE = 1
-  attr_reader :grid
+  attr_reader :dimensions, :grid
 
-  def initialize options
-    size = options.fetch(:size, DEFAULT_SIZE)
-    cell = options.fetch(:cell)
-    @grid = {}
-    letter_range_based_on_size(size).map do |letter|
-      (1..dimension_size(size)).map{|number| @grid['#{letter}#{number}'.to_sym] = cell.new}
-  end
-
-  def dimension_size size
-    Math.sqrt(size).ceil
-  end
-
-  def letter_range_based_on_size size
-    ('A'..to_letter_in_alphabet(dimension_size(size))
-  end
-
-  def to_letter_in_alphabet number
-    (number.ord + 64).chr
-  end
-
-  def place ship, coordinate
-    coordinates_for(ship.size, coordinate).each do |coordinate|
-    grid[coordinate].content = ship
-  end
-
-  def coordinates_for size, coordinates
-    coordinates = [coordinate]
-    (size - 1).times {coordinates << coordinates.last.next}
-    coordinates
-    # get A2 & :A1 into an array
+  def initialize(dim = 1, cell)
+    @dimensions = dim
+    @grid = cell
   end
 end

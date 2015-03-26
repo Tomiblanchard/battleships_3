@@ -1,30 +1,28 @@
 require 'board'
 
 describe Board do
-  let(:cell){double :cell}
-  let(:second_cell){double :second_cell}
-  let(:cell_class){double :cell_class, new: cell}
-  let(:board) { Board.new({size: 100, cell: cell_class})}
-  let(:ship) { double :ship, size:1 }
-  let(:ship) { double :ship, size:1 }
+  let(:cell) { double :cell }
+  let(:ship) { double :ship }
+  let(:board) { Board.new cell }
 
   it 'can be created with default dimensions 1x1' do
-    expect(board.grid.size).to eq 1
+    expect(board.dimensions).to eq 1
   end
 
-  xit 'can place a ship'
-
-  it 'has 100 cells in the grid' do
-    expect(board.grid.count).to eq 100
+  it 'has a grid of Cell(s) when created (1 for now)' do
+    expect(board.grid).to eq cell
   end
 
-  it 'can place a size 2 ship on the cell' do
-    board.grid[:A1] = second_cell
-    board.grid[:A2] = second_cell
-    ship = double :ship, size: 2
-    expect
+  it 'can place a ship (on the one cell we have, for now)' do
+    allow(cell).to receive(:place_ship)
+    allow(cell).to receive(:content).and_return(ship)
+    board.grid.place_ship(ship)
+    expect(board.grid.content).to eq ship
   end
 
-  it "can work out the coordinates for a size" do
-  end
+  xit 'has 100 cells in the grid'
+
+  xit 'can place a size 2 ship on the cell'
+
+  xit 'can work out the coordinates for a size'
 end

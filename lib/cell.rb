@@ -1,11 +1,9 @@
 # cell
 class Cell
-  attr_accessor :content
-  attr_reader :size, :hit
+  attr_reader :hit, :content
   alias_method :hit?, :hit
 
-  def initialize(size = 1)
-    @size = size
+  def initialize
     @hits = 0
     @hit = false
   end
@@ -19,5 +17,10 @@ class Cell
     fail 'Cell already hit' if hit?
     content.hit
     @hit = true
+  end
+
+  def place_ship(ship)
+    @content = ship
+    ship
   end
 end
