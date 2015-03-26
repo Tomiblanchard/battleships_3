@@ -16,4 +16,8 @@ class Ship
   def sunk? # ? as want to return true or false
     hits >= size
   end
+
+  def self.battleship # use self as refering to the Ship class
+    new({size: 5})
+  end
 end

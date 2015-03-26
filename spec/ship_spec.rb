@@ -17,5 +17,7 @@ describe Ship do
     expect(ship).to be_sunk
   end
 
-  xit 'initialize a battleship'
+  it 'initialize a battleship' do
+    battleship = Ship.battleship
+    expect(battleship.size).to eq 5
 end
