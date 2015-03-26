@@ -5,20 +5,11 @@ describe Board do
   let(:ship) { double :ship }
   let(:board) { Board.new cell }
 
-  it 'can be created with default dimensions 1x1' do
-    expect(board.dimensions).to eq 1
-  end
+  xit 'can be created with default dimensions 1x1'
 
-  it 'has a grid of Cell(s) when created (1 for now)' do
-    expect(board.grid).to eq cell
-  end
+  xit 'has a grid of Cell(s) when created (1 for now)'
 
-  it 'can place a ship (on the one cell we have, for now)' do
-    allow(cell).to receive(:place_ship)
-    allow(cell).to receive(:content).and_return(ship)
-    board.grid.place_ship(ship)
-    expect(board.grid.content).to eq ship
-  end
+  xit 'can place a ship (on the one cell we have, for now)'
 
   xit 'has 100 cells in the grid'
 

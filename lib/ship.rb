@@ -1,21 +1,19 @@
 # ship
 class Ship
-  attr_reader :size
+  attr_reader :size, :hits
+  DEFAULT_SHIP_SIZE = 1
 
-  def initialize(size = 1)
-    @size = size
-    @hits = 0
+  def initialize(options)
+    @size = options.fetch(:size, DEFAULT_SHIP_SIZE)
+    @hits = 0 # initial hits are 0
+    @sunk = false
   end
 
-  def sunk?
-    hits >= size
-  end
-
-  def hit
+  def hit # a hit increases the hits counter
     @hits += 1
   end
 
-  def hits
-    @hits ||= 0
+  def sunk? # ? as want to return true or false
+    hits >= size
   end
 end

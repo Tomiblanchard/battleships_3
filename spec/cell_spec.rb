@@ -4,35 +4,18 @@ describe Cell do
   let(:cell) { Cell.new }
   let(:ship) { double :ship }
 
-  it 'can contain a ship' do
-    cell.place_ship(ship)
-    expect(cell.content).to eq ship
-  end
+  xit 'can contain have content'
 
   context 'with content' do
     before do
-      cell.place_ship(ship)
-      allow(ship).to receive :hit
     end
 
-    it 'can be hit' do
-      cell.hit
-      expect(cell).to be_hit
-    end
+    xit 'can be hit'
 
-    it 'throws an error if hit twice' do
-      cell.hit
-      expect { cell.hit }.to raise_error 'Cell already hit'
-    end
+    xit 'throws an error if you try to hit twice'
 
-    it 'hit whatever is in the content' do
-      allow(ship).to receive(:hit)
-      cell.hit
-    end
+    xit 'hit whatever is in the content'
 
-    it 'knows when contents are sunk' do
-      allow(ship).to receive(:sunk?).and_return(true)
-      expect(cell.content).to be_sunk
-    end
+    xit 'knows when contents are sunk'
   end
 end
