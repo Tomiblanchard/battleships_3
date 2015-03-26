@@ -20,4 +20,5 @@ describe Ship do
   it 'initialize a battleship' do
     battleship = Ship.battleship
     expect(battleship.size).to eq 5
+  end
 end

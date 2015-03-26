@@ -4,18 +4,34 @@ describe Cell do
   let(:cell) { Cell.new }
   let(:ship) { double :ship }
 
-  xit 'can contain have content'
+  it 'can have content' do
+    cell.content = ship
+    expect(cell.content).to eq ship
+  end
 
-  context 'with content' do
+  context 'dfdfd'
     before do
+      cell.content = ship # can delete this line from other tests
+      allow(ship).to receive(:hit)
     end
 
-    xit 'can be hit'
+  it 'can be hit' do
+    cell.hit
+    expect(cell).to be_hit
+  end
 
-    xit 'throws an error if you try to hit twice'
+  it 'throws an error if you try to hit twice' do
+    cell.hit
+    expect{cell.hit}.to raise_error "Cell already hit"
+    # use {} with raise_error method
+  end
 
-    xit 'hit whatever is in the content'
+  it 'hit whatever is in the content' do
+    cell.content = ship
+    expect(ship).to receive(:hit)
+    cell.hit
+  end
 
-    xit 'knows when contents are sunk'
+  it 'knows when contents are sunk' do
   end
 end
