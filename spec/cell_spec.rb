@@ -22,7 +22,7 @@ describe Cell do
 
   it 'throws an error if you try to hit twice' do
     cell.hit
-    expect{cell.hit}.to raise_error "Cell already hit"
+    expect{ cell.hit }.to raise_error 'Cell already hit'
     # use {} with raise_error method
   end
 

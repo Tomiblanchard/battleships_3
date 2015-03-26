@@ -18,6 +18,6 @@ class Ship
   end
 
   def self.battleship # use self as refering to the Ship class
-    new({size: 5})
+    new({ size: 5 })
   end
 end

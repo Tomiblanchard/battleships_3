@@ -1,7 +1,7 @@
 require 'ship'
 
 describe Ship do
-  let(:ship) { Ship.new ({size: 2}) }
+  let(:ship) { Ship.new ({ size: 2 }) }
 
   it 'can have a size' do
     expect(ship.size).to eq 2

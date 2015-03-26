@@ -8,7 +8,7 @@ class Cell
   end
 
   def hit
-    raise "Cell already hit" if hit?
+    fail "Cell already hit" if hit?
     # above will raise message for any second attempt to hit
     content.hit
     # above allows to hit content
